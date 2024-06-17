@@ -1,0 +1,29 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "start",
+			"path": "Msplit-reactive-form",
+			"problemMatcher": [],
+			"label": "npm: start - Msplit-reactive-form",
+			"detail": "ng serve",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"type": "npm",
+			"script": "build",
+			"path": "Msplit-reactive-form",
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			},
+			"problemMatcher": [],
+			"label": "npm: build - Msplit-reactive-form",
+			"detail": "ng build"
+		}
+	] 
+}
