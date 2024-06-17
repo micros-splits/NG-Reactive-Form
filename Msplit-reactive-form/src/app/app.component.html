@@ -1,1 +1,17 @@
-<button></button>
+
+<form [formGroup]="profileForm" (ngSubmit)="submitIt()">
+    <div *ngFor="let control of profileForm.controls|keyvalue">
+        <label [for]=control.key>{{control.key}}:</label>
+        <input [id]=control.key type="text" [formControlName]=control.key>
+        <p *ngFor="let error of control.value.errors|keyvalue" style="color: red;">{{error.key}}:{{error.value}}</p>
+    </div>
+
+<!--     <label for="firstName">first Name: </label>
+    <input id="firstName" type="text" formControlName="firstName">
+
+    <label for="lastName">last Name: </label>
+    <input id="lastName" type="text" formControlName="lastName">
+ -->
+    <p>Form Status: {{ profileForm.status }}</p>
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>
