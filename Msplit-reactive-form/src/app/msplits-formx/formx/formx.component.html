@@ -1,0 +1,8 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmitx()">
+    <div *ngFor="let control of formGroup.controls|keyvalue">
+        <msplits-reactive-strfield [form]="formGroup" [control]=control></msplits-reactive-strfield>
+    </div>
+
+    <p>Form Status: {{ formGroup.status }}</p>
+    <button type="submit" [disabled]="!formGroup.valid">Submit</button>
+</form>

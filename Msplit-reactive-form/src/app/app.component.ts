@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { StringFieldComponent } from './msplits-formx/string-field/string-field.component';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class AppComponent {
   constructor(private formBuilder: FormBuilder) {}
 
+  x=StringFieldComponent;
 submitIt() {
   console.log(this.profileForm.value);
 }
