@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output  } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
+import { FormModel } from '../classes/FormModel';
 
 @Component({
   selector: 'msplits-reactive-formx',
@@ -7,11 +8,29 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./formx.component.css']
 })
 export class FormxComponent {
+  
 
-  @Input() formGroup:FormGroup;
+  formModel_:FormModel;
+  formGroup:FormGroup;
+  
+  @Input()
+  set formModel(formModel:FormModel){
+    this.formModel_=formModel;
+    this.formGroup=this.createFormGroup(formModel);
+  }
+
   @Output() onSubmit:EventEmitter<any>=new EventEmitter();
 
   onSubmitx(){
     this.onSubmit.emit(this.formGroup.value);
   }
+
+  private createFormGroup(formModel:FormModel): FormGroup {
+    let formGroup=new FormGroup({});
+    formModel.fields.forEach((field)=>{
+      formGroup.addControl(field.name,new FormControl(field.value));
+    });
+    return formGroup;
+  }
+
 }

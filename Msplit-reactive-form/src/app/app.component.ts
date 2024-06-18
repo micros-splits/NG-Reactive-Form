@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { StringFieldComponent } from './msplits-formx/string-field/string-field.component';
+import { FormModel } from './msplits-formx/classes/FormModel';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +12,9 @@ export class AppComponent {
   constructor(private formBuilder: FormBuilder) {}
 
   x=StringFieldComponent;
-submitIt() {
-  console.log(this.profileForm.value);
-}
+  submitIt(formObj:any) {
+    console.log(formObj);
+  }
 
   title = 'Msplit-reactive-form';
   profileForm2:FormGroup=new FormGroup({
@@ -25,5 +26,14 @@ submitIt() {
     firstName:['val1',Validators.required],
     lastName:['val2'],
   });
+
+  formModel: FormModel={
+    title:"",
+    fields:[
+      {label:"First Name",name:"firstName",value:"manar"},
+      {label:"Last Name",name:"lastName",value:"Alkull"},
+    ]
+  };
+
 
 }

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { AbstractField } from '../AbstractField';
-import { AbstractControl, FormGroup } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { KeyValue } from '@angular/common';
+import { FieldModel } from '../classes/FormModel';
 
 @Component({
   selector: 'msplits-reactive-strfield',
@@ -10,6 +10,6 @@ import { KeyValue } from '@angular/common';
 })
 export class StringFieldComponent {
   @Input() form:FormGroup;
-  @Input() control:KeyValue<string,AbstractControl>;
+  @Input() fieldModel:FieldModel;
 
 }
