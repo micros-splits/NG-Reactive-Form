@@ -1,6 +1,8 @@
-import { Component, EventEmitter, Input, Output  } from '@angular/core';
+import { Component, EventEmitter, Input, Output, QueryList, Type, ViewChildren  } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { FormModel } from '../classes/FormModel';
+import { FIELDSTYPES, FormModel } from '../classes/FormModel';
+import { FieldComponent } from '../classes/FieldComponent';
+import { StringFieldComponent } from '../string-field/string-field.component';
 
 @Component({
   selector: 'msplits-reactive-formx',
@@ -8,7 +10,6 @@ import { FormModel } from '../classes/FormModel';
   styleUrls: ['./formx.component.css']
 })
 export class FormxComponent {
-  
 
   formModel_:FormModel;
   formGroup:FormGroup;
@@ -33,4 +34,13 @@ export class FormxComponent {
     return formGroup;
   }
 
+  fieldsConponents:{[ket:string]:Type<FieldComponent>}={[FIELDSTYPES.string]:StringFieldComponent};
+
+  getFieldComponent(type:string):  Type<FieldComponent> {
+    return this.fieldsConponents[type];
+  }
+
 }
+
+
+
