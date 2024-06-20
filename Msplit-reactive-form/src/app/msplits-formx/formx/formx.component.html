@@ -3,7 +3,7 @@
     <div *ngFor="let field of formModel_.fields">
         <!-- <msplits-reactive-strfield [form]=formGroup [fieldModel]=field></msplits-reactive-strfield> -->
         <!-- <ng-container class="field-componenet" *ngComponentOutlet="getFieldComponent(field.type)" /> -->
-        <ng-template *ngComponentOutlet="getFieldComponent(field.type); inputs: {form:formGroup,fieldModel:field}" />
+        <ng-template *ngComponentOutlet="getFieldComponent(field.fieldComponent); inputs: {form:formGroup,fieldModel:field}" />
     </div>
 
     <p>Form Status: {{ formGroup.status }}</p>

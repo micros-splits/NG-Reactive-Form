@@ -1,7 +1,7 @@
 import { Component} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { StringFieldComponent } from './msplits-formx/string-field/string-field.component';
-import { FIELDSTYPES, FormModel } from './msplits-formx/classes/FormModel';
+import { FIELD_COMPONENTS, FormModel } from './msplits-formx/classes/FormModel';
 
 @Component({
   selector: 'app-root',
@@ -30,8 +30,8 @@ export class AppComponent {
   formModel: FormModel={
     title:"",
     fields:[
-      {label:"First Name",name:"firstName",value:"manar",type:FIELDSTYPES.string},
-      {label:"Last Name",name:"lastName",value:"Alkull",type:FIELDSTYPES.string},
+      {label:"First Name",name:"firstName",value:"manar",fieldComponent:FIELD_COMPONENTS.string},
+      {label:"Last Name",name:"lastName",value:"Alkull",fieldComponent:FIELD_COMPONENTS.string},
     ]
   };
 

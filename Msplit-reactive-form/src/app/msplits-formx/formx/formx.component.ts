@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output, QueryList, Type, ViewChildren  } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { FIELDSTYPES, FormModel } from '../classes/FormModel';
+import { FIELD_COMPONENTS, FormModel } from '../classes/FormModel';
 import { FieldComponent } from '../classes/FieldComponent';
 import { StringFieldComponent } from '../string-field/string-field.component';
 
@@ -34,7 +34,7 @@ export class FormxComponent {
     return formGroup;
   }
 
-  fieldsConponents:{[ket:string]:Type<FieldComponent>}={[FIELDSTYPES.string]:StringFieldComponent};
+  fieldsConponents:{[ket:string]:Type<FieldComponent>}={[FIELD_COMPONENTS.string]:StringFieldComponent};
 
   getFieldComponent(type:string):  Type<FieldComponent> {
     return this.fieldsConponents[type];

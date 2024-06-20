@@ -8,10 +8,10 @@ export class FieldModel<ValueType=any>{
     name:string;
     label:string="";
     value:ValueType;
-    type:string;
+    fieldComponent:string;
 }
 
 
-export var FIELDSTYPES={
+export var FIELD_COMPONENTS={
     string:"string"
 }
