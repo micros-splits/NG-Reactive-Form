@@ -32,6 +32,7 @@ export class AppComponent {
     fields:[
       {label:"First Name",name:"firstName",value:"manar",fieldComponent:FIELD_COMPONENTS.string},
       {label:"Last Name",name:"lastName",value:"Alkull",fieldComponent:FIELD_COMPONENTS.string},
+      {label:"amount",name:"amount",value:"1",fieldComponent:FIELD_COMPONENTS.number},
     ]
   };
 

@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StringFieldComponent } from './msplits-formx/string-field/string-field.component';
 import { FormxComponent } from './msplits-formx/formx/formx.component';
+import { NumberFieldComponent } from './msplits-formx/number-field/number-field.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StringFieldComponent,
-    FormxComponent
+    FormxComponent,
+    NumberFieldComponent
   ],
   imports: [
     BrowserModule,

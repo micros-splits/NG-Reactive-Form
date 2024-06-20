@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { FIELD_COMPONENTS, FormModel } from '../classes/FormModel';
 import { FieldComponent } from '../classes/FieldComponent';
 import { StringFieldComponent } from '../string-field/string-field.component';
+import { NumberFieldComponent } from '../number-field/number-field.component';
 
 @Component({
   selector: 'msplits-reactive-formx',
@@ -34,7 +35,10 @@ export class FormxComponent {
     return formGroup;
   }
 
-  fieldsConponents:{[ket:string]:Type<FieldComponent>}={[FIELD_COMPONENTS.string]:StringFieldComponent};
+  fieldsConponents:{[ket:string]:Type<FieldComponent>}={
+    [FIELD_COMPONENTS.string]:StringFieldComponent,
+    [FIELD_COMPONENTS.number]:NumberFieldComponent,
+  };
 
   getFieldComponent(type:string):  Type<FieldComponent> {
     return this.fieldsConponents[type];

@@ -13,5 +13,6 @@ export class FieldModel<ValueType=any>{
 
 
 export var FIELD_COMPONENTS={
-    string:"string"
+    string:"string",
+    number:"number",
 }
