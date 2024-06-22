@@ -1,5 +1,5 @@
 
 <div [formGroup]=form>
-    <label [for]=fieldModel.name>{{fieldModel.label}}:</label>
+    <label [for]=fieldModel.name>{{fieldModel.label||fieldModel.name}}:</label>
     <input class="form-control" [id]=fieldModel.name type="text" [formControlName]=fieldModel.name>
 </div>

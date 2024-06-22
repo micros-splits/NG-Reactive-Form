@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, Output, QueryList, Type, ViewChildren  } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { FIELD_COMPONENTS, FormModel } from '../classes/FormModel';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FIELD_COMPONENTS, FieldModel, FormModel } from '../classes/FormModel';
 import { FieldComponent } from '../classes/FieldComponent';
 import { StringFieldComponent } from '../string-field/string-field.component';
 import { NumberFieldComponent } from '../number-field/number-field.component';
+import { ControlValidationComponent } from '../control-validation/control-validation.component';
 
 @Component({
   selector: 'msplits-reactive-formx',
@@ -11,6 +12,10 @@ import { NumberFieldComponent } from '../number-field/number-field.component';
   styleUrls: ['./formx.component.css']
 })
 export class FormxComponent {
+
+  getControl(fieldName:string): FormControl<any> {
+      return this.formGroup.controls[fieldName] as any;
+  }
 
   formModel_:FormModel;
   formGroup:FormGroup;
@@ -30,7 +35,7 @@ export class FormxComponent {
   private createFormGroup(formModel:FormModel): FormGroup {
     let formGroup=new FormGroup({});
     formModel.fields.forEach((field)=>{
-      formGroup.addControl(field.name,new FormControl(field.value));
+      formGroup.addControl(field.name,new FormControl(field.value,field.validators??[]));
     });
     return formGroup;
   }
@@ -40,10 +45,11 @@ export class FormxComponent {
     [FIELD_COMPONENTS.number]:NumberFieldComponent,
   };
 
-  getFieldComponent(type:string):  Type<FieldComponent> {
-    return this.fieldsConponents[type];
+  getFieldComponent(type?:string):  Type<FieldComponent> {
+    return this.fieldsConponents[type??FIELD_COMPONENTS.string];
   }
 
+  controlValidationComponent:Type<ControlValidationComponent>=ControlValidationComponent;
 }
 
 

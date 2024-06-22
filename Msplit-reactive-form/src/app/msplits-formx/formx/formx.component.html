@@ -2,6 +2,8 @@
     
     <div class="form-group" *ngFor="let field of formModel_.fields" >
         <ng-template *ngComponentOutlet="getFieldComponent(field.fieldComponent); inputs: {form:formGroup,fieldModel:field}" />
+        <ng-template *ngComponentOutlet="controlValidationComponent; inputs: {control:getControl(field.name)}" />
+        <!-- <msplits-reactive-control-validation [control]="getControl(field.name)"></msplits-reactive-control-validation> -->
     </div>
 
     <p>Form Status: {{ formGroup.status }}</p>

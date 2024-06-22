@@ -7,13 +7,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { StringFieldComponent } from './msplits-formx/string-field/string-field.component';
 import { FormxComponent } from './msplits-formx/formx/formx.component';
 import { NumberFieldComponent } from './msplits-formx/number-field/number-field.component';
+import { ControlValidationComponent } from './msplits-formx/control-validation/control-validation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StringFieldComponent,
     FormxComponent,
-    NumberFieldComponent
+    NumberFieldComponent,
+    ControlValidationComponent
   ],
   imports: [
     BrowserModule,

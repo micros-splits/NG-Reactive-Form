@@ -1,3 +1,5 @@
+import { ValidatorFn } from "@angular/forms";
+
 export class FormModel{
     title:string;
     fields:FieldModel[]=[];
@@ -6,9 +8,10 @@ export class FormModel{
 
 export class FieldModel<ValueType=any>{
     name:string;
-    label:string="";
+    label?:string="";
     value:ValueType;
-    fieldComponent:string;
+    fieldComponent?:string;
+    validators?:ValidatorFn[];
 }
 
 
