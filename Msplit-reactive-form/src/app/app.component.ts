@@ -30,7 +30,7 @@ export class AppComponent {
   formModel: FormModel={
     title:"",
     fields:[
-      {label:"First Name",name:"firstName",value:"manar",fieldComponent:FIELD_COMPONENTS.string,validators:[Validators.required,Validators.minLength(4),Validators.maxLength(2)]},
+      {label:"First Name",name:"firstName",value:"manar",fieldComponent:FIELD_COMPONENTS.string,validators:[Validators.required,Validators.minLength(2),Validators.maxLength(8)]},
       {name:"lastName",value:"Alkull"},
       {label:"amount",name:"amount",value:"1",fieldComponent:FIELD_COMPONENTS.number},
     ]
